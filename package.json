@@ -5,7 +5,8 @@
   "author": "Tony <anthony.weldon.jr@gmail.com>",
   "private": true,
   "scripts": {
-    "dev": "./node_modules/.bin/webpack-dev-server --inline --progress --config build/webpack.dev.conf.js",
+    "dev": "webpack-dev-server --inline --progress --config build/webpack.dev.conf.js",
+    "live": "webpack --progress --config build/webpack.prod.conf.js",
     "start": "npm run dev",
     "unit": "cross-env BABEL_ENV=test karma start test/unit/karma.conf.js --single-run",
     "e2e": "node test/e2e/runner.js",
@@ -17,7 +18,9 @@
     "axios": "^0.18.0",
     "video.js": "^7.2.4",
     "vue": "^2.5.2",
-    "vue-router": "^3.0.1",
+    "vue-router": "^3.0.1"
+  },
+  "devDependencies": {
     "autoprefixer": "^7.1.2",
     "babel-core": "^6.22.1",
     "babel-eslint": "^8.2.1",
