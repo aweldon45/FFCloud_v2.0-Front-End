@@ -1,11 +1,11 @@
-import Api from '@/services/Api'
+import api from '@/services/api'
 
 export default {
   index () {
-    return Api().get('allfilms')
+    return api().get('allfilms')
   },
   screeningFilm (title) {
-    return Api().get('film', {
+    return api().get('film', {
       params: {
         title: encodeURIComponent(title)
       }

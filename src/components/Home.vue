@@ -83,7 +83,7 @@ export default {
     festivalHeaderStyling: function () {
       return {
         display: 'inline',
-        fontSize: '18px',
+        fontSize: '25px',
         width: '100%',
         color: '#263238',
         textAlign: 'left'
@@ -94,8 +94,8 @@ export default {
         position: 'relative',
         boxSizing: 'border-box',
         margin: '20px 20px',
-        width: '300px',
-        height: '320px',
+        width: '400px',
+        height: '440px',
         borderRadius: '5px',
         display: 'inline-block'
       }
@@ -105,7 +105,7 @@ export default {
         position: 'absolute',
         boxSizing: 'border-box',
         width: '100%',
-        height: '200px',
+        height: '320px',
         top: '0px',
         border: '1px solid #D5DBDB',
         borderRadius: '5%',
@@ -117,6 +117,7 @@ export default {
         position: 'absolute',
         boxSizing: 'border-box',
         textAlign: 'center',
+        lineHeight: '50%',
         width: '100%',
         height: '120px',
         bottom: '0',
@@ -138,11 +139,13 @@ export default {
 <style scoped>
 #filmtitle {
   font-weight: bold;
+  font-size: 25px;
   color: #7E5109;
   text-transform: uppercase;
 }
 #filmscreen {
   font-weight: bold;
+  font-size: 20px;
   text-transform: uppercase;
 }
 #filmlogline {
