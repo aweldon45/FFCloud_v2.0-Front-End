@@ -1,4 +1,5 @@
-FROM node:8-alpine
+# build static files
+FROM node:8-alpine as builder
 
 WORKDIR /home/node/ffc/client
 
@@ -6,6 +7,14 @@ ADD . .
 
 RUN npm install && npm run build
 
-EXPOSE 80
+# build nginx image to serve static files from build
 
-CMD npm start
+FROM nginx
+
+# remove the defualt static file drive
+RUN rm -rf /usr/share/nginx/html*
+
+# from builder copy in new directory of static files
+COPY --from=builder /home/node/ffc/client/dist /usr/share/nginx/html
+EXPOSE 80
+CMD ["nginx", "-g", "daemon off;"]
