@@ -4,12 +4,18 @@ import Home from '@/components/Home'
 import About from '@/components/About'
 import TicketBooth from '@/components/TicketBooth'
 import ScreeningRoom from '@/components/ScreeningRoom'
+import LandingPage from '@/components/LandingPage'
 
 Vue.use(Router)
 
 export default new Router({
   mode: 'history',
   routes: [
+    {
+      path: '/LandingPage',
+      name: 'LandingPage',
+      component: LandingPage
+    },
     {
       path: '/',
       name: 'Home',

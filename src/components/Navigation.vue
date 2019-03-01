@@ -8,7 +8,7 @@
         <a href="#">Connect with us</a>
       </li>
       <li style="float: right">
-        <a href="/TicketBooth">How it works</a>
+        <a href="/About">How it works</a>
       </li>
     </ul>
   </nav>
