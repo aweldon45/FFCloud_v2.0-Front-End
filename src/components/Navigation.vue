@@ -48,7 +48,6 @@ li {
 li a {
     display: block;
     font-weight: 600;
-    font-family: Helvetica, sans-serif;
     color:#263238;
     font-size: 20px;
     text-align: center;
