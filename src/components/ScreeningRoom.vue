@@ -7,8 +7,6 @@
       <source :src="this.reqFilm.Items[0].info.screeningUrl" type="application/x-mpegURL">
     </video>
   </div>
-    <br>
-    <input id="commentBar" type="text" placeholder="Feedback for the filmmmaker?">
   </div>
   </div>
 </template>
@@ -30,13 +28,15 @@ export default {
     this.title1 = this.$route.params.title
   },
   async mounted () {
-    // request screening film from backend "Motown: Sound of the 60's"
     this.reqFilm = (await FilmService.screeningFilm(this.title1)).data
     console.log('reqFilm', this.reqFilm)
     // mount player on next tick to prevent hard refresh FU
     this.$nextTick(function () {
-      return videojs('vidPlayer')
+      this.vidPlayer = videojs('vidPlayer')
     })
+  },
+  updated () {
+    console.log('player created', this)
   },
   computed: {
     screenBackground: function () {
@@ -65,15 +65,4 @@ export default {
 </script>
 
 <style scoped>
-#commentBar {
-  padding-top: 10px;
-  margin-top: 20px;
-  font-size: 16px;
-  width: 1025px;
-  height: 18px;
-  color: white;
-  text-indent: 10px;
-  line-height: 1.6;
-  background-color: #17202A
-}
 </style>

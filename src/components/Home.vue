@@ -1,12 +1,12 @@
 <template>
   <div>
-    <div :style="BackgroundStyling">
-      <div :style="mainBannerStyling">
-        <h2>{{message}}</h2>
-      </div>
+    <div id='banner'>
+      <h2>{{message}}</h2>
+      <div id='bannerimage'>
+    </div>
   </div>
   <br>
-  <div :style='festivalHeaderStyling' v-for="festivals in festivalCount" :key="festivals">
+  <div id='festivalheaders' v-for="festivals in festivalCount" :key="festivals">
     <h2>{{festivals}}</h2>
   <ul id='scrollingwrapper'>
    <li :style='cardStyling' v-if="films.festival === festivals" v-for="films in filmList.Items" :key="films.title">
@@ -32,7 +32,7 @@ import FilmService from '@/services/FilmService'
 export default {
   data () {
     return {
-      message: 'Experience your favorite festivals from anywhere!',
+      message: 'Discover new filmmakers without barriers.',
       message2: 'Simultaneous broadcast with live screenings',
       filmList: {},
       festivalCount: null
@@ -54,48 +54,13 @@ export default {
     this.festivalCount = festCheckResponse
   },
   computed: {
-    BackgroundStyling: function () {
-      return {
-        display: 'block',
-        backgroundColor: '#F5CBA7',
-        height: '210px',
-        justifyContent: 'center',
-        lineHeight: '15.6px',
-        paddingLeft: '20px',
-        paddingRight: '20px',
-        top: '60px',
-        width: '100%'
-      }
-    },
-    mainBannerStyling: function () {
-      return {
-        display: 'block',
-        fontSize: '30px',
-        position: 'absolute',
-        height: '210px',
-        width: '100%',
-        color: '#263238',
-        textAlign: 'center',
-        lineHeight: '1.5',
-        margin: '0 auto'
-      }
-    },
-    festivalHeaderStyling: function () {
-      return {
-        display: 'inline',
-        fontSize: '20px',
-        width: '100%',
-        color: '#263238',
-        textAlign: 'left'
-      }
-    },
     cardStyling: function () {
       return {
         position: 'relative',
         boxSizing: 'border-box',
         margin: '20px 20px',
-        width: '300px',
-        height: '300px',
+        width: '325px',
+        height: '450px',
         borderRadius: '5px',
         display: 'inline-block'
       }
@@ -105,7 +70,7 @@ export default {
         position: 'absolute',
         boxSizing: 'border-box',
         width: '100%',
-        height: '200px',
+        height: '350px',
         top: '0px',
         border: '1px solid #D5DBDB',
         borderRadius: '5%',
@@ -137,6 +102,31 @@ export default {
 </script>
 
 <style scoped>
+@import url('https://fonts.googleapis.com/css?family=Oswald');
+#banner {
+  display: block;
+  height: 650px;
+  font-family: 'Oswald', sans-serif;
+  font-weight: bold;
+  font-size: 40px;
+  color: white;
+  text-align: center;
+  text-shadow: 0 0 10px #2C3E50;
+  border-bottom: 1px solid #5D6D7E;
+  background-image: url("../assets/CroniesImg.jpg");
+  background-position: center;
+  background-repeat: no-repeat;
+  background-size: cover;
+}
+#festivalheaders {
+  display: inline;
+  font-family: 'Oswald', sans-serif;
+  font-weight: bold;
+  font-size: 30px;
+  width: 100%;
+  color: #263238;
+  text-align: left;
+}
 #filmtitle {
   font-weight: bold;
   font-size: 20px;

@@ -2,7 +2,7 @@
   <nav>
     <ul>
       <li>
-        <a href="/">FilmFestivalCloud Beta</a>
+        <a href="/">FilmFestivalCircle Beta</a>
       </li>
       <li style="float: right">
         <a href="#">Connect with us</a>

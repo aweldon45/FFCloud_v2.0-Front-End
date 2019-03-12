@@ -4,7 +4,7 @@
     <h1 id='herotxt'>Film Festival Circle</h1>
     <h2 id='logline'>A platform focused on creating a global community for all lovers of film festivals and independent film.</h2>
     <h2 id='logline'>Click below to stay updated on our upcoming launch!</h2>
-    <button v-on:click="signup" class='button'>Keep me updated!</button>
+    <router-link :to="'home'" class='button' tag='button'>Watch!</router-link>
     <form class='modal'>Modal check
       <label>Email:</label>
       <input/>

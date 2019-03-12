@@ -12,11 +12,6 @@ export default new Router({
   mode: 'history',
   routes: [
     {
-      path: '/LandingPage',
-      name: 'LandingPage',
-      component: LandingPage
-    },
-    {
       path: '/',
       name: 'Home',
       component: Home
