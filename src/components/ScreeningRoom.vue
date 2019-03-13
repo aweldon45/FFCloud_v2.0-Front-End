@@ -2,8 +2,8 @@
   <div>
   <div :style='screenBackground'>
     <br>
-    <div data-vjs-player>
-      <video id="vidPlayer" class="video-js" controls preload="auto" height="575px" data-setup='{}'>
+    <div data-vjs-player v-if="Items.length">
+      <video id="vidPlayer" class="video-js" controls preload="none" height="575px" data-setup='{}'>
       <source :src="this.reqFilm.Items[0].info.screeningUrl" type="application/x-mpegURL">
     </video>
   </div>
@@ -21,22 +21,38 @@ export default {
     return {
       vidPlayer: null,
       reqFilm: {},
-      title1: null
+      title1: null,
+      Items: []
     }
   },
   created () {
     this.title1 = this.$route.params.title
+    /* this.reqFilm = (await FilmService.screeningFilm(this.title1)).data
+    this.$nextTick(function () {
+      this.vidPlayer = videojs('vidPlayer')
+      console.log('player ready')
+    console.log('reqFilm', this.reqFilm)
+    this.Items = this.reqFilm.Items
+    console.log('item length', this.Items.length)
+  }) */
   },
   async mounted () {
     this.reqFilm = (await FilmService.screeningFilm(this.title1)).data
     console.log('reqFilm', this.reqFilm)
+    this.Items = this.reqFilm.Items
+    console.log('item length', this.Items.length)
     // mount player on next tick to prevent hard refresh FU
     this.$nextTick(function () {
       this.vidPlayer = videojs('vidPlayer')
+      console.log('player ready')
     })
   },
-  updated () {
-    console.log('player created', this)
+  destroyed () {
+    this.vidPlayer.dispose()
+    console.log('player disposed')
+  },
+  methods: {
+
   },
   computed: {
     screenBackground: function () {

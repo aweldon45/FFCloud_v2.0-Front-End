@@ -34,7 +34,6 @@ ul {
     margin: 0;
     padding: 0;
     overflow: hidden;
-    background-color: #F5CBA7;
     position: fixed;
     top: 0;
     width: 100%;

@@ -4,6 +4,7 @@ import Home from '@/components/Home'
 import About from '@/components/About'
 import TicketBooth from '@/components/TicketBooth'
 import ScreeningRoom from '@/components/ScreeningRoom'
+// eslint-disable-next-line
 import LandingPage from '@/components/LandingPage'
 
 Vue.use(Router)
